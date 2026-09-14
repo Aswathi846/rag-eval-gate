@@ -1,5 +1,3 @@
-# Evaluation thresholds for the CI/CD quality gate
-# Justification: Strikes a balance between strict quality enforcement and preventing brittle test failures.
-recall: 0.99          # Ensures the retrieval engine successfully surfaces the expected source section at least 80% of the time.
-correctness: 0.75     # Confirms the system answers correctly or refuses unanswerable prompts accurately across the subset.
-groundedness: 0.85    # Guarantees that responses are heavily anchored in retrieved context rather than unverified parametric memory.
+recall: 1.01          
+correctness: 0.75     
+groundedness: 0.85
