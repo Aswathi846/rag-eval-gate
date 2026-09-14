@@ -124,3 +124,33 @@ export async function countMessages(
   `;
   return Number((rows as { total: string | number }[])[0]?.total ?? 0);
 }
+
+export type DocumentSearchResult = {
+  section_title: string;
+  content: string;
+  similarity: number;
+};
+
+export async function searchDocuments(
+  queryEmbedding: number[],
+  limit = 3,
+  similarityThreshold = 0.3
+): Promise<DocumentSearchResult[]> {
+  const sql = getSql();
+  if (!sql) return [];
+
+  const embeddingString = `[${queryEmbedding.join(",")}]`;
+
+  const rows = await sql`
+    SELECT 
+      section_title, 
+      content, 
+      1 - (embedding <=> ${embeddingString}::vector) AS similarity
+    FROM meridian_documents
+    WHERE 1 - (embedding <=> ${embeddingString}::vector) >= ${similarityThreshold}
+    ORDER BY similarity DESC
+    LIMIT ${limit}
+  `;
+
+  return rows as DocumentSearchResult[];
+}
