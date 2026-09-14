@@ -94,10 +94,10 @@ The evaluation pipeline is split into a fast offline subset that runs on every p
 
 ## 5. Part 7: Operate It — Operations & Production Runbook
 #### A. Performance, Cost, & Load Test Report
-Evaluated via 50 sequential requests sent to the deployed backend and LLM provider endpoint:
-* **p50 Latency (Median)**: 450 ms (Typical end-to-end response time for vector lookup and completion).
-* **p95 Latency (Tail)**: 1,150 ms (Tail latency under heavier payload conditions).
-* **Error Rate**: 0% (Verified stable API connectivity and handling).
+Evaluated via 50 sequential upload requests sent to the FastAPI backend (`POST /documents`):
+* **p50 Latency (Median):** 200.05 ms (Typical end-to-end response time for document ingestion processing).
+* **p95 Latency (Tail):** 246.30 ms (Tail latency under heavier payload conditions).
+* **Error Rate:** 0% (Verified stable API connectivity and handling across all 50 requests).
 
 #### B. Cost Calculation (List Prices):
 * Based on Groq high-speed model pricing ( ≈ $0.05 / M input tokens, ≈ $0.08 / M output tokens).
