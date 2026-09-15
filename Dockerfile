@@ -8,11 +8,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends build-essential
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy only the necessary backend files/folders
-COPY app.py .
 # Copy other python files or app directories if your code imports them
 COPY ingest.py diff_check.py ./ 
 
 EXPOSE 7860
 
+COPY app/ ./app/
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860"]
