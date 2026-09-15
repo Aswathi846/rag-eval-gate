@@ -41,7 +41,6 @@ meridian-assistant/
 ├── venv/                        # Local Python virtual environment
 ├── .env.local                   # Local environment variables
 ├── .gitignore
-├── app.py                       # Application entry point
 ├── diff_check.py                # PDF extraction diff verification script
 ├── eval.py                      # Evaluation engine and test suite runner
 ├── fix_reference.py             # Reference parsing helper script
