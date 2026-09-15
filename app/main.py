@@ -54,7 +54,7 @@ class ChatResponse(BaseModel):
     tokens_out: int
 
 
-# --- Search & RAG Logic ---
+# Search & RAG Logic
 def retrieve_context(query_text: str, top_k: int = 5):
     global db_pool, model
     query_embedding = model.encode(query_text).tolist()
@@ -180,7 +180,7 @@ def process_document_background(job_id: str, filename: str, file_bytes: bytes):
                     INSERT INTO chunks (section, chunk_index, content, embedding, document_id)
                     VALUES (%s, %s, %s, %s, %s)
                     """,
-                    ("General", idx, chunk, embedding, filename)
+                    (filename, idx, chunk, embedding, filename)
                 )
             conn.commit()
 
