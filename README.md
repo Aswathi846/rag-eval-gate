@@ -4,6 +4,12 @@ An enterprise-grade Retrieval-Augmented Generation (RAG) assistant featuring aut
 
 ---
 
+## 🚀 Quick Links & Performance Summary
+* **Frontend (Vercel):** (https://rag-eval-gate-kzlhyqcvo-aswathipalakkalirunaveed-2033.vercel.app/) 
+* **Backend API Docs (Render):** https://rag-eval-gate.onrender.com/docs
+
+---
+
 ## 1. Project Overview & Architecture
 This repository implements a modular RAG pipeline designed to ingest structured documents, run vector similarity searches via ChromaDB/pgvector, and evaluate responses against strict grounding and correctness criteria.
 
